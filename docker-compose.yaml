@@ -1,0 +1,22 @@
+name: roller-derby-scoreboard
+
+services:
+  scoreboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        version: "${VERSION:-v2025.5}"
+    image: "jeddai/nashvillerollerderby:scoreboard-${VERSION:-v2025.5}"
+    ports:
+      - "${PORT:-8000}:8000"
+    volumes:
+      - type: bind
+        source: "${AUTOSAVE_MOUNT_LOCATION:-./mount/autosave}"
+        target: /scoreboard/config/autosave
+      - type: bind
+        source: "${LOGS_MOUNT_LOCATION:-./mount/logs}"
+        target: /scoreboard/logs
+      - type: bind
+        source: "${GAME_DATA_MOUNT_LOCATION:-./mount/game-data}"
+        target: /scoreboard/html/game-data/json

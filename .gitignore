@@ -1,0 +1,6 @@
+mount/autosave/*
+mount/logs/*
+mount/game-data/*
+
+.idea
+.env
