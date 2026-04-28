@@ -31,4 +31,4 @@ jobs:
             version=${{ inputs.version }}
           platforms: linux/amd64,linux/arm64,linux/x86_64
           push: true
-          tags: nashvillerollerderby/crg-scoreboard:latest,nashvillerollerderby/crg-scoreboard:a
+          tags: nashvillerollerderby/crg-scoreboard:latest,nashvillerollerderby/crg-scoreboard:${{ inputs.version }}
